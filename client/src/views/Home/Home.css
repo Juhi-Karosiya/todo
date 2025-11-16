@@ -1,0 +1,134 @@
+.heading {
+  text-align: center;
+}
+
+.todo-card {
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #ffe680;
+}
+
+.todo-icon {
+  font-size: 40px;
+  margin: 0 20px;
+}
+
+.todo-priority {
+  background-color: black;
+  position: absolute;
+  top: 15px;
+  right: 100px;
+  color: white;
+  padding: 5px 10px;
+  min-width: 50px;
+  text-align: center;
+  border-radius: 50px;
+  font-size: 14px;
+}
+
+.todo-created-at {
+  position: absolute;
+  bottom: 10px;
+  right: 100px;
+}
+
+.todo-done {
+  text-decoration: line-through;
+}
+
+.fab {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  background-color: black;
+  color: white;
+  padding: 5px 20px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 20px;
+}
+
+.del-btn {
+  position: absolute;
+  right: 0;
+}
+
+.del-icon {
+  height: 35px;
+  position: absolute;
+  right: 30px;
+  border-left: 1px dotted black;
+  padding-left: 15px;
+}
+
+@media (max-width: 768px) {
+  .todo-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    margin: 15px;
+  }
+
+  .todo-icon {
+    font-size: 35px;
+    margin: 10px 0;
+  }
+
+  .todo-priority {
+    position: static;
+    margin-bottom: 10px;
+    font-size: 13px;
+    padding: 4px 8px;
+  }
+
+  .todo-created-at {
+    position: static;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .del-icon {
+    position: static;
+    margin-top: 10px;
+    align-self: flex-end;
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .fab {
+    right: 20px;
+    bottom: 20px;
+    font-size: 16px;
+    padding: 6px 16px;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 22px;
+  }
+
+  .todo-card {
+    margin: 10px;
+    padding: 10px 15px;
+  }
+
+  .todo-detail h2 {
+    font-size: 16px;
+  }
+
+  .fab {
+    font-size: 14px;
+    padding: 5px 14px;
+  }
+}
