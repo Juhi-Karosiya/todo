@@ -50,3 +50,24 @@ app.get("/todos", (req, res) => {
     message: "Todo items fetched successfully",
   });
 });
+
+app.post("/todos", (req, res) => {
+  const { todoItem, priority, emoji } = req.body;
+
+  const todoObj = {
+    id: TODO_ITEMS[TODO_ITEMS.length - 1].id + 1,
+    todoItem: todoItem,
+    priority: priority,
+    emoji: emoji,
+    isDone: false,
+    createdAt: new Date().toISOString(),
+  };
+
+  TODO_ITEMS.push(todoObj);
+
+  res.json({
+    success: true,
+    data: todoObj,
+    message: "Todo item added successfully",
+  });
+});
