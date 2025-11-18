@@ -71,3 +71,22 @@ app.post("/todos", (req, res) => {
     message: "Todo item added successfully",
   });
 });
+
+app.get("/todos/search", (req, res) => {
+  const { item, priority } = req.query;
+
+  const filteredItems = TODO_ITEMS.filter((itemObj) => {
+    if (
+      itemObj.todoItem.toLowerCase().includes(item.toLowerCase()) &&
+      itemObj.priority.toLowerCase() == priority.toLowerCase()
+    ) {
+      return true;
+    }
+    return false;
+  });
+  res.json({
+    success: true,
+    data: filteredItems,
+    message: "Filtered todo items fetched successfully",
+  });
+});
