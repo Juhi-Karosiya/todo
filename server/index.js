@@ -111,3 +111,22 @@ app.get("/todos/:id", (req, res) => {
     });
   }
 });
+
+app.delete("/todos/:id", (req, res) => {
+  const { id } = req.params;
+
+  const index = TODO_ITEMS.findIndex((item) => item.id == id);
+
+  if (index === -1) {
+    res.json({
+      success: false,
+      message: "Todo item not find",
+    });
+  } else {
+    TODO_ITEMS.splice(index, 1);
+    res.json({
+      success: true,
+      message: "Todo item deleted successfully",
+    });
+  }
+});
