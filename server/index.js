@@ -153,3 +153,40 @@ app.patch("/todos/:id/status", (req, res) => {
     });
   }
 })
+
+ app.put("/todos/:id", (req, res) => {
+    const { id } = req.params;
+
+    const index = TODO_ITEMS.findIndex((item) => item.id == id);
+
+    if (index == -1) {
+      return res.json({
+        success: false,
+        message: "Todo items not found",
+      });
+    }
+    const { todoItem, priority, isDone, emoji } = req.body;
+
+    const newObj = {
+      todoItem,
+      priority,
+      isDone,
+      emoji,
+      id: TODO_ITEMS[index].id,
+      createdAt: TODO_ITEMS[index].createdAt,
+    };
+
+    TODO_ITEMS[index] = newObj;
+
+    res.json({
+      success: true,
+      data: newObj,
+      message: "Todo item updated successfully",
+    });
+  });
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
