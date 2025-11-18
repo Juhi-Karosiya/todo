@@ -42,3 +42,11 @@ const TODO_ITEMS = [
     createdAt: new Date().toISOString(),
   },
 ];
+
+app.get("/todos", (req, res) => {
+  res.json({
+    success: true,
+    data: TODO_ITEMS,
+    message: "Todo items fetched successfully",
+  });
+});
